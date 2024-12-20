@@ -1,0 +1,111 @@
+﻿
+
+@model CodeFirstApproachExample.Models.Employee
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<!-- Title with background styling -->
+<h1 class="text-center bg-warning ">Employee Details</h1>
+
+<div class="container mt-2">
+    <!-- Details Section with Bootstrap classes -->
+    <div class="card shadow-lg  mb-4 bg-transparent rounded">
+        <h4 class="text-center text-dark">Employee Information</h4>
+        <hr />
+        <dl class="row">
+            <!-- Name -->
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <!-- Gender -->
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Gender)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Gender)
+            </dd>
+
+            <!-- Age -->
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Age)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Age)
+            </dd>
+
+            <!-- Salary -->
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Salary)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Salary)
+            </dd>
+        </dl>
+    </div>
+
+    <!-- Navigation Links (Edit, Back to List) -->
+    <div class="text-center">
+        <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-warning btn-sm mr-2">Edit</a>
+        <a asp-action="Index" class="btn btn-outline-danger btn-sm">Back to List</a>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+<!-- Custom Styling for Transparency -->
+<style>
+    /* Transparent background for details card */
+    .card {
+        background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+        backdrop-filter: blur(10px); /* Optional blur effect */
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .text-center {
+        text-align: center !important;
+    }
+
+    /* Styling for buttons */
+    .btn-warning {
+        background-color: #ff9900;
+        color: white;
+        font-weight: bold;
+    }
+
+    .btn-outline-danger {
+        color: #e95c4d;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    /* Hover effect for buttons */
+    .btn-warning:hover {
+        background-color: #e68900;
+        color: white;
+    }
+
+    .btn-outline-danger:hover {
+        background-color: #e95c4d;
+        color: white;
+    }
+
+    /* Adjust description list layout */
+    dl.row dt {
+        font-weight: bold;
+        color: #333;
+    }
+
+    dl.row dd {
+        color: #555;
+    }
+</style>
+

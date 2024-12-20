@@ -1,0 +1,138 @@
+﻿
+
+
+@model CodeFirstApproachExample.Models.Employee
+
+@{
+    ViewData["Title"] = "Create Employee";
+}
+
+<!-- Title with background styling -->
+<h1 class="text-center bg-warning text-white ">Create Employee</h1>
+<h4 class="text-center text-dark bg-info ">Employee Details</h4>
+
+<hr />
+
+<!-- Form Container with Bootstrap Grid -->
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <!-- Create Form with Bootstrap classes for responsiveness -->
+            <form asp-action="Create">
+                <!-- Validation Summary to show all model errors -->
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-2"></div>
+
+                <!-- Name Input Field -->
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label">Name</label>
+                    <input asp-for="Name" class="form-control form-control-lg" placeholder="Enter employee name" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <!-- Gender Input Field -->
+                <div class="form-group">
+                    <label asp-for="Gender" class="control-label">Gender</label>
+                    <input asp-for="Gender" class="form-control form-control-lg" placeholder="Enter gender" />
+                    <span asp-validation-for="Gender" class="text-danger"></span>
+                </div>
+
+                <!-- Age Input Field -->
+                <div class="form-group">
+                    <label asp-for="Age" class="control-label">Age</label>
+                    <input asp-for="Age" class="form-control form-control-lg" placeholder="Enter age" />
+                    <span asp-validation-for="Age" class="text-danger"></span>
+                </div>
+
+                <!-- Salary Input Field -->
+                <div class="form-group">
+                    <label asp-for="Salary" class="control-label">Salary</label>
+                    <input asp-for="Salary" class="form-control form-control-lg" placeholder="Enter salary" />
+                    <span asp-validation-for="Salary" class="text-danger"></span>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary btn-lg w-100 mt-2" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Link to go back to the list -->
+<div class="text-center mt-3">
+    <a asp-action="Index" class="btn btn-outline-danger">Back to List</a>
+</div>
+
+<!-- Scripts for Validation -->
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+<!-- Custom Styling -->
+<style>
+    /* Background color for the body */
+    body {
+        background-color: #f8f9fa;
+    }
+
+    /* Form container styling with transparency */
+    .container {
+        background-color: rgba(255, 255, 255, 0.85); /* Light transparent background */
+        padding: 5px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Customizing form fields with smooth rounded corners */
+    .form-control {
+        font-size: 1rem;
+        border-radius: 8px;
+        padding: 12px;
+        background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent */
+        border: 1px solid #ced4da;
+    }
+
+    .form-control:focus {
+        background-color: #fff;
+        border-color: #007bff;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+
+    /* Customizing buttons with transparency and hover effects */
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+        font-weight: bold;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #004085;
+    }
+
+    /* Styling for 'Back to List' button with transparent border */
+    .btn-outline-danger {
+        text-decoration: none;
+        font-weight: bold;
+        color: #e95c4d;
+        border-color: #e95c4d;
+    }
+
+    .btn-outline-danger:hover {
+        background-color: #e95c4d;
+        color: white;
+    }
+
+    /* Adjust spacing for form fields */
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+  
+
+    /* Hover effect for form fields */
+    .form-control:hover {
+        background-color: rgba(255, 255, 255, 0.95);
+    }
+</style>
