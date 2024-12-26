@@ -10183,9 +10183,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\cdac aug s\\ASP.NET\\16-12-2024\\netwithReact\\CodeFirstApproachExample\\CodeFirstApproachExample\\CodeFirstApproachExample.csproj",
-      "projectName": "CodeFirstApproachExample",
-      "projectPath": "D:\\cdac aug s\\ASP.NET\\16-12-2024\\netwithReact\\CodeFirstApproachExample\\CodeFirstApproachExample\\CodeFirstApproachExample.csproj",
+      "projectUniqueName": "D:\\cdac aug s\\ASP.NET\\16-12-2024\\netwithReact\\CodeFirstApproachExample\\CodeFirstApproachExample\\Solar.csproj",
+      "projectName": "Solar",
+      "projectPath": "D:\\cdac aug s\\ASP.NET\\16-12-2024\\netwithReact\\CodeFirstApproachExample\\CodeFirstApproachExample\\Solar.csproj",
       "packagesPath": "C:\\Users\\cdac\\.nuget\\packages\\",
       "outputPath": "D:\\cdac aug s\\ASP.NET\\16-12-2024\\netwithReact\\CodeFirstApproachExample\\CodeFirstApproachExample\\obj\\",
       "projectStyle": "PackageReference",

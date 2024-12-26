@@ -1,49 +1,199 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - CodeFirstApproachExample</title>
+    <title>@ViewData["Title"] - Solar Employee Management</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/CodeFirstApproachExample.styles.css" asp-append-version="true" />
+    <!-- Include Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <!-- Custom styles for Solar Company -->
+    <style>
+        /* Solar Company Theme Colors */
+        .navbar {
+            background-color: #228B22; /* Green color for solar company branding */
+        }
+
+        .navbar-brand,
+        .navbar-nav .nav-link {
+            color: white !important;
+        }
+
+            .navbar-nav .nav-link:hover {
+                color: #FFD700 !important; /* Yellow color on hover */
+            }
+
+        .navbar-toggler-icon {
+            background-color: white;
+        }
+
+        /* Customizing Footer */
+        .footer {
+            background-color: #2d2d2d; /* Dark grey background */
+            color: #f8f9fa;
+            padding: 40px 0;
+            position:relative;
+            bottom: -60px;
+        }
+
+            .footer a {
+                color: #FFD700;
+            }
+
+                .footer a:hover {
+                    color: #228B22;
+                }
+
+            .footer .social-icons a {
+                font-size: 25px;
+                margin: 0 15px;
+            }
+
+            .footer .footer-contact {
+                margin-top: 20px;
+                font-size: 14px;
+            }
+
+        /* Hero Section */
+        .hero-section {
+            background: url('https://pics.craiyon.com/2024-07-22/jTN3wcMaTk26YeaQ3FzMng.webp') no-repeat center center;
+            background-size: cover;
+            height: 400px;
+            color: white;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        
+
+            .hero-section h1 {
+                font-size: 60px;
+                font-weight: bold;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            }
+
+        /* Card Styling for Employee Listings */
+        .employee-card {
+            transition: transform 0.3s ease-in-out;
+        }
+
+            .employee-card:hover {
+                transform: scale(1.05);
+            }
+
+            .employee-card img {
+                border-radius: 10px;
+            }
+
+        /* Container Padding */
+        .container {
+            margin-top: 50px;
+        }
+
+            .container h2 {
+                text-align: center;
+                margin-bottom: 40px;
+            }
+
+        /* Button Styling */
+        .btn-custom {
+            background-color: #FFD700;
+            color: #228B22;
+            border-radius: 30px;
+            padding: 12px 24px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+            .btn-custom:hover {
+                background-color: #228B22;
+                color: white;
+                transform: translateY(-2px);
+            }
+
+       
+    </style>
 </head>
+
 <body>
+    <!-- Header Section -->
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">CodeFirstApproachExample</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar-brand" href="~/Home/Index">
+                    <img src="data:image/jpeg;base64,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rakxCOlj6GJoJ6WUg2BJcXXIA27AVTq06W3tVXmT5ka9pWupUlStYbMF+6Xn0eDGTqU1DtKJ5nscaqQXjG8UsZwefzH0Rrx1JVnyUcSWP9K4/wC583Zx7C9b2Kctub25fM+H+1fc6ykpWxN0W8SSSXOJ1ucTrKzZScnlmzGKS3E68nQgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAID5c0EWIuDgQdR4ocaT3M5HL2Y0Ut305EL9ej/lns/p7MOpaltqtSn7tT3l4mTdaTTqe9T3PwOJmp6zJ8ml6cLtQcMWO6r+q7geS2ozt7uGNz6udfcxpQuLSed66+Z/Y6TJX8QjbRqor7NOP/UwnwPYs6vo/PSl9H6mlQ1fmqr6r0NQUuSq7GMsa8+yejf8AIbX5FVdu9tt0s4696LDt7G63rGercypVZge6n7Ht/wBQ8lNDV/nj3FOpoPyT70ZsmZdWzFoY74XW8QFOtSoS457ijLRbqLzHD7GetyLlJuAEo4Sj/ejubN8cd34PHsOpR4Z/5fklZkrKZ972zD/evDr2fV3fgex6o/m/5fksMzZrn+vJb4pHO8LqN3tvH4V4Ei0i/n8U8dsmfUubUFONKrqmxjd6LT2Fxx5Lkb2rUeKUM+JLHQKcN9er3fkgpsq02loZNpH1kg/zHAiNp3lztXIL3O2rY2rqpsLo539EXaFC1pvFvT2n0v8AJt02bstQQ/KUom2inZdtO0/mGuQj82HFVJXcKfu20cf6n8T9PoaUaEp76rz1Lh+TpWMAFgLAYADUBuCz3vLa3H0gCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgPiWNrgWuAcDgQQCDxC6m08o44prDOaynmNSS4sDoHfkPo/IcOVloUdUr09zeV1+pnVtLoT3x3Pq9Dma7+HdQ38KSOUdd2HliO9adPWaT+OLXj6FCekVF8LT8PUpsyZlemwYJwBsY8Pb2NBI7lI69hW+LH1WCNUb2lwz35JmZwZYjwcyV3xU58Q0Ly7TT5cGl2S/JIrq9jxT+sSdmdWVzqpyf+nl814dhYfP/AOyJFe3j/b/6smblLLsvqw6H/LYz+8qN0NMhxln6t+SJFVvpftx9PUnZm7lio/8AsVnRA7GuN/lYGjvXl3lhS/t0s9v5ye1bXc/jnj+dWDRyb/D2kjOnMX1D9ZLzZpPwjX2kqvV1evJbMMRXUT09OpReZe8+s6qnp2RtDI2hjRgGtAAHABZkpOTzJ5ZejFRWESrydCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIBZAEAQHlkB6gCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgP/Z" alt="Solar Company Logo" style="height: 50px;"> SolarTech
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-white" href="~/Home/Index">
+                                <i class="fas fa-home"></i> Home
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-white" href="~/Employee/Index">
+                                <i class="fas fa-users"></i> Employees
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="~/Home/Privacy">
+                                <i class="fas fa-shield-alt"></i> Privacy
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="mailto:info@solartech.com">
+                                <i class="fas fa-envelope"></i> Contact
+                            </a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <h1>Welcome to SolarTech</h1>
+    </section>
+
+    <!-- Main Content Section -->
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
+
+        <!-- Additional Content Here -->
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - CodeFirstApproachExample - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <!-- Footer Section -->
+    <footer class="footer text-muted">
+        <div class="container text-center">
+            &copy; 2024 SolarTech | <a href="~/Home/Privacy">Privacy Policy</a>
+            <div class="social-icons mt-3">
+                <a href="https://www.facebook.com/solartech" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://twitter.com/solartech" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.linkedin.com/company/solartech" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/solartech" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div class="footer-contact">
+                <p>Email us: <a href="mailto:info@solartech.com">info@solartech.com</a></p>
+                <p>Call us: +1 (800) 123-4567</p>
+            </div>
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
+
 </html>

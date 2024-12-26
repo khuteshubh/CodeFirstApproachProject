@@ -10,16 +10,6 @@ namespace CodeFirstApproachExample.Controllers
     {
         private readonly EmployeeDBContext employeeDB;
 
-        //private readonly ILogger<HomeController> _logger;
-
-        // public HomeController(ILogger<HomeController> logger)
-        // {
-        //logger = logger;
-        //}
-
-           
-
-
         public HomeController(EmployeeDBContext employeeDB)
         {
             this.employeeDB = employeeDB;

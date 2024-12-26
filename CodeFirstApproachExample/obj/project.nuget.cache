@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "HTENeguMCx3KVIaV8i305f9GkOul/IKlk3zdirmXDcDO95/3VaT0M+YrolDRt4iFVgTCWNmcxHVrUL2SMuZvkQ==",
+  "dgSpecHash": "90oKVnd0LVys3YIHqTL+YtYQ/UQMxLH3LDG/Z6PjbcWN7RYQxICASlGe9Wla9NMg+RXVdc3JNSzqSCAAmC5tsw==",
   "success": true,
-  "projectFilePath": "D:\\cdac aug s\\ASP.NET\\16-12-2024\\netwithReact\\CodeFirstApproachExample\\CodeFirstApproachExample\\CodeFirstApproachExample.csproj",
+  "projectFilePath": "D:\\cdac aug s\\ASP.NET\\16-12-2024\\netwithReact\\CodeFirstApproachExample\\CodeFirstApproachExample\\Solar.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\cdac\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\cdac\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

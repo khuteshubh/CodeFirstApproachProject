@@ -11,7 +11,7 @@
 <h4 class="text-center text-dark bg-info">Employee Details</h4>
 <hr />
 
-<div class="container">
+<div class="containerE">
     <div class="row justify-content-center">
         <div class="col-lg-6">
             <form asp-action="Edit">
@@ -60,7 +60,7 @@
 
 <!-- Back to List Link -->
 <div class="text-center ">
-    <a asp-action="Index" class="btn btn-outline-danger">Back to List</a>
+    <a asp-action="Index" class="btn btn-outline-danger btn-back">Back to List</a>
 </div>
 
 <!-- Include Scripts for Validation -->
@@ -81,10 +81,15 @@
         font-weight: bold;
     }
 
+    .btn-back {
+        position: relative;
+        top: 5px;
+    }
+
     /* Transparent form container */
-    .container {
+    .containerE {
         background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
-        padding: 20px;
+        padding-top: 5px;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }

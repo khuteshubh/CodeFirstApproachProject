@@ -1,13 +1,11 @@
-﻿
-
-@model CodeFirstApproachExample.Models.Employee
+﻿@model CodeFirstApproachExample.Models.Employee
 
 @{
     ViewData["Title"] = "Details";
 }
 
 <!-- Title with background styling -->
-<h1 class="text-center bg-warning ">Employee Details</h1>
+<h1 class="text-center bg-warning  ">Employee Details</h1>
 
 <div class="container mt-2">
     <!-- Details Section with Bootstrap classes -->
@@ -69,6 +67,13 @@
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
+    h1{
+        color: white;
+    }
+    h4{
+        position: relative;
+        top: 9px;
+    }
 
     .text-center {
         text-align: center !important;
@@ -102,10 +107,16 @@
     dl.row dt {
         font-weight: bold;
         color: #333;
+       
     }
+    dl.row{
+        padding-left: 8px;
+    }
+   
 
     dl.row dd {
         color: #555;
+       
     }
 </style>
 
